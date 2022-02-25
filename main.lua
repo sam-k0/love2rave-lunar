@@ -20,9 +20,7 @@ end
 
 -- Game Step
 function love.update(delta)
-    n1:update();    
-
-    
+    n1:update();
 end
 
 -- Game Draw
