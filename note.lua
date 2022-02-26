@@ -2,25 +2,30 @@ Note = Object:extend();
 
 function Note:new(type)
     self.x = 0;
-    self.y = 0;   
-    self.speed = 0; 
+    self.y = GAMECONFIG.LANE_Y;   
+    self.speed = 500; 
     self.sprite = nil;
+    self.sprite_angle = 0;
     -- Get the type of sprite to assign by type
     if(type == 1) then
         self.sprite = SPRITES.spr_noteLeft;
+        self.x = GAMECONFIG.LANE_ONE_X;
+        self.sprite_angle = -180;
     elseif(type == 2) then
         self.sprite = SPRITES.spr_noteUp;
+        self.x = GAMECONFIG.LANE_TWO_X;
     elseif (type == 3) then
         self.sprite = SPRITES.spr_noteRight;
+        self.x = GAMECONFIG.LANE_THREE_X;
+        self.sprite_angle = 90;
     end
 
-    
     self.sprite_width = self.sprite:getWidth()
     self.sprite_height = self.sprite:getHeight()
 end
 
-function Note:update(dt)
-    self.y = self.y + self.speed;
+function Note:update(delta)
+    self.y = self.y + self.speed * delta;
 
 end
 
