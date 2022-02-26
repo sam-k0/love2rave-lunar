@@ -9,6 +9,7 @@ end
 -- Game Start Event
 function love.load() 
     Object = require "lib/classic"
+             require "extendmath"
              require "gameconfig"
              require "spriteload" -- load sprites
              require "note"
