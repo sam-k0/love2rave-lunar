@@ -2,10 +2,12 @@ Note = Object:extend();
 
 function Note:new(type)
     self.x = 0;
-    self.y = GAMECONFIG.LANE_Y;   
-    self.speed = 500; 
+    self.y = GAMECONFIG.LANE_Y+ math.random(0,100);   
+    self.speed = 200; 
     self.sprite = nil;
     self.sprite_angle = 0;
+    self.type = type;
+    self.sprite_scale = .5;
     -- Get the type of sprite to assign by type
     if(type == 1) then
         self.sprite = SPRITES.spr_noteLeft;
@@ -32,7 +34,7 @@ end
 function Note:draw()
     local centerx = self.sprite_width/2;
     local centery = self.sprite_height/2;
-    local scale = .5;
+    local scale = self.sprite_scale;
 
     love.graphics.draw(self.sprite, self.x, self.y, 0, scale, scale, centerx, centery ,0 ,0);
 end

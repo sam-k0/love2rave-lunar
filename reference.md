@@ -10,3 +10,7 @@ end
 --for i,v in ipairs(fruits) do
 --   print(i,v)
 --end
+
+
+    function love.keypressed(key)
+    end
