@@ -45,13 +45,14 @@ end
 function HitNote:checkNoteCollision(noteList)
     local scaledHeight = self.sprite_height * self.sprite_scale;
     local scaledWidth = self.sprite_width * self.sprite_scale;
-
+    print(collectgarbage("count"))
     for i=1, #self.assignedList do
         -- Check collision
         local note = self.assignedList[i];
         if(math.abs(note.y - self.y) <= scaledHeight) then
             -- Collision detected
             table.remove(self.assignedList, i);
+            collectgarbage("collect");
         end
     end
 end
