@@ -1,8 +1,8 @@
 Note = Object:extend();
 
-function Note:new(type)
+function Note:new(type, ystart)
     self.x = 0;
-    self.y = GAMECONFIG.LANE_Y+ math.random(0,100);   
+    self.y = ystart; --GAMECONFIG.LANE_Y+ math.random(0,100);   
     self.speed = 200; 
     self.sprite = nil;
     self.sprite_angle = 0;

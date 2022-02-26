@@ -8,22 +8,25 @@ end
 
 -- Game Start Event
 function love.load() 
-    Object = require "lib/classic"
-             require "extendmath"
-             require "gameconfig"
-             require "spriteload" -- load sprites
-             require "note"
-             require "hitnote"
+    Object = require "lib/classic"          print("Loading lib/classic")
+             require "lib/extendmath"       print("Loading lib/extendmath")
+             require "gameconfig"           print("Loading gameconfig")
+             require "spriteload"           print("Loading spriteload")
+             require "note"                 print("Loading note")
+             require "hitnote"              print("Loading hitnote")
+    Json  =  require "lib/json"             print("Loading lib/json")
+             require "lib/FileInputOutput"  print("Loading lib/FileInputOutput")
 
     SPRITES = Spriteload(); -- load all sprites
     GAMECONFIG = Gameconfig();
-
+    -- Lists of notes
     NoteListLeft = {};
     NoteListRight = {};
     NoteListMid = {};
-    table.insert(NoteListLeft, Note(1));
-    table.insert(NoteListMid, Note(2));
-    table.insert(NoteListRight, Note(3));
+    -- Spawn some notes by hand
+    table.insert(NoteListLeft, Note(1, -500));
+    table.insert(NoteListMid, Note(2, 0));
+    table.insert(NoteListRight, Note(3, 0));
 
     OBJECTS = {};
 
@@ -34,6 +37,19 @@ function love.load()
     table.insert(OBJECTS, LeftBtn);
     table.insert(OBJECTS, MidBtn);
     table.insert(OBJECTS, RightBtn);
+
+    --[[if(file_exists("sus.txt")) then
+        local lines = lines_from("sus.txt");
+        print(lines[1])
+        local jstr = lines[1];
+        print(jstr)
+        local decodedJ = {};
+       decodedJ = Json.parse(jstr)
+        
+        for i = 1, #decodedJ do
+            print(decodedJ[i])
+        end
+    end]]
 end
 
 

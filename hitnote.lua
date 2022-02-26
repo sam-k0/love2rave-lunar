@@ -1,5 +1,5 @@
 HitNote = Object:extend();
-require "extendmath"
+require "lib/extendmath"
 
 function HitNote:new(type, list)
     self.x = 0;
