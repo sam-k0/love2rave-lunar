@@ -54,4 +54,22 @@ function read_chart(chartstr) -- Reads a string and does funny stuff
 
 end
 
+function optimizeChart(list)
+	local prev = 999;
+	for j = 1, #list  do
+		for i = 1, #list do
+			local note = list[i];
+			if(note == nil) == false then 
 
+				local scaledSize = note.sprite_height * note.sprite_scale;
+
+				if (math.abs(note.y + scaledSize - prev) <= scaledSize) then
+					table.remove(list, i);
+					print(math.abs(note.y + scaledSize - prev))
+				end
+
+				prev = note.y + note.sprite_height * note.sprite_scale;
+			end
+		end
+	end
+end

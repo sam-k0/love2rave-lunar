@@ -3,7 +3,7 @@
 
 -- Mit Alt + L ausführen
 function love.conf(t) -- Ermöglicht das ausgeben auf der Console
-    t.console = true;
+    t.console = false;
 end
 
 -- Game Start Event
@@ -72,6 +72,11 @@ function love.load()
     end
 
     print(count)
+
+    -- optimize
+    optimizeChart(NoteListLeft)
+    optimizeChart(NoteListMid)
+    optimizeChart(NoteListRight)
 
 end
 
