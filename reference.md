@@ -14,3 +14,30 @@ end
 
     function love.keypressed(key)
     end
+
+
+local curVal = "SUS";
+		local curType = 1;
+
+		-- Massive if else lols
+		if (c == "x") then -- End of chart type
+
+					
+		elseif (c== ",") then -- new value
+
+			-- Push to table
+			print(curVal);
+			curVal = "SUS" --reset buffer
+
+		elseif (c == " ") then-- Skippppp
+			
+			-- uuh skip
+
+		else-- Append numbers
+			
+			print(curVal)
+			print(c)
+			curVal = curVal .. c; -- wtf lua
+
+			
+		end

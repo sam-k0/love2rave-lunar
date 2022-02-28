@@ -34,7 +34,7 @@ function HitNote:update(delta)
     if (love.keyboard.isDown(self.actionKey)) then
         -- Hit the note?
         self.sprite_alpha = 1;
-        self:checkNoteCollision(self.assignedList);
+        --self:checkNoteCollision(self.assignedList);
     end
     -- Decrease again
     self.sprite_alpha = self.sprite_alpha - 3 * delta;
@@ -44,15 +44,21 @@ end
 
 function HitNote:checkNoteCollision(noteList)
     local scaledHeight = self.sprite_height * self.sprite_scale;
-    local scaledWidth = self.sprite_width * self.sprite_scale;
-    print(collectgarbage("count"))
+    --local scaledWidth = self.sprite_width * self.sprite_scale;
     for i=1, #self.assignedList do
         -- Check collision
         local note = self.assignedList[i];
+        if( note == nil)
+        then
+            print( "ERROR: Lost Note! (Null-Collision detected)")
+            return 0;
+        end
         if(math.abs(note.y - self.y) <= scaledHeight) then
             -- Collision detected
             table.remove(self.assignedList, i);
-            collectgarbage("collect");
+            print("not null")
+            return true;
+            --collectgarbage("collect");
         end
     end
 end

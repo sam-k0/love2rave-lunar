@@ -1,5 +1,7 @@
 {
     "Lua.diagnostics.globals": [
-        "love"
+        "love",
+        "read_file",
+        "read_chart"
     ]
 }
