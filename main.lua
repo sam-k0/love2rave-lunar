@@ -4,6 +4,8 @@
 -- Mit Alt + L ausführen
 function love.conf(t) -- Ermöglicht das ausgeben auf der Console
     t.console = false;
+    t.title = "love2rave"
+    t.version = "0.1"
 end
 
 -- Game Start Event
