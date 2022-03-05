@@ -56,7 +56,6 @@ function HitNote:checkNoteCollision(noteList)
         if(math.abs(note.y - self.y) <= scaledHeight) then
             -- Collision detected
             table.remove(self.assignedList, i);
-            print("not null")
             return true;
             --collectgarbage("collect");
         end

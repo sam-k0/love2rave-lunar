@@ -31,10 +31,6 @@ function love.load()
     NoteListLeft = {};
     NoteListRight = {};
     NoteListMid = {};
-    -- Spawn some notes by hand
-    --table.insert(NoteListLeft, Note(1, -500));
-    --table.insert(NoteListMid, Note(2, 0));
-    --table.insert(NoteListRight, Note(3, 0));
 
     OBJECTS = {};
 
@@ -79,6 +75,7 @@ function love.load()
     optimizeChart(NoteListLeft)
     optimizeChart(NoteListMid)
     optimizeChart(NoteListRight)
+    collectgarbage("collect");
 
 end
 
